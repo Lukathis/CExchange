@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+   <div class="container">
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>New Articles!</h1>
+        <p class="lead">We hope civil engineering can become fun and interesting!</p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+          {% for article in article_list %}
+              <div class="post">
+                    <div class="post-hd">
+                        <h1 class="title"><a href="{% url 'blog:detail' article.pk %}">{{ article.title }}</a></h1>
+                    </div>
+                    <div class="post-bd">
+                        <p>{{ article.abstract }}</p>
+                        <p><a href="" class="more-link"></a></p>
+                    </div>
+                    <div class="post-ft">
+                        <i class="icon-date"></i>
+                        <span class="date">{{ article.last_modified_time|date:"Y年n月d日" }}</span>
+                        <a class="btn btn-default btn-sm" href="{% url 'blog:detail' article.id %}" role="button">阅读全文 &raquo;</a>
+                    </div>
+            </div>
+
+            <br> <br />
+        {% endfor %}
+
+
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+   </div>
+
+{% endblock %}
