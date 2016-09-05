@@ -20,6 +20,10 @@ An experience share and Q&amp;A website for civil engineers.
 
 8. 浏览器输入 http://127.0.0.1:8000/
 
+### 第三方包
+
+pillow
+
 
 # Authors
 Travis
