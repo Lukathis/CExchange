@@ -17,7 +17,8 @@
             <h2 class="blog-post-title">{{ article_detail.title }}</h2>
             <p class="blog-post-meta">{{ article_detail.last_modified_time|date:"Y年n月d日" }}   作者: <a href="#">{{ article_detail.author }}</a></p>
 
-            <p> {{ article_detail.body }}</p>
+            <!--文章主体部分-->
+            <p> {{ article_detail.body | safe}}</p>
 
           </div><!-- /.blog-post -->
 
@@ -28,7 +29,7 @@
             </ul>
           </nav>
 
-          <a class="btn btn-default btn-sm" href="{% url 'blog:index' %}" role="button">返回首页 &raquo;</a>gi
+          <a class="btn btn-default btn-sm" href="{% url 'blog:index' %}" role="button">返回首页 &raquo;</a>
 
         </div><!-- /.blog-main -->
 

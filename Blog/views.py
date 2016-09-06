@@ -4,6 +4,8 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from Blog.models import Article, Category, Author
 
+import markdown2
+
 # Create your views here.
 
 
@@ -20,6 +22,8 @@ class IndexView(ListView):
     def get_queryset(self):
         article_list = Article.objects.all()
         # !可在此加上body用markdown转换内容
+        for article in article_list:
+            article.body = markdown2.markdown(article.body, extras=['fenced-code-blocks'],)
         return article_list
 
 # 详情页
@@ -35,6 +39,7 @@ class ArticleDetailView(DetailView):
     def get_object(self, queryset=None):
         article_detail = super(ArticleDetailView, self).get_object()
         # !可在此加上body用markdown转换内容
+        article_detail.body = markdown2.markdown(article_detail.body, extras=['fenced-code-blocks'], )
         return article_detail
 
     # def detail(request, pk_id):
@@ -52,6 +57,8 @@ class CategoryView(ListView):
     def get_queryset(self):
         article_list = Article.objects.filter(category=self.kwargs['category_id'])
         # !可在此加上body用markdown转换内容
+        for article in article_list:
+            article.body = markdown2.markdown(article.body, extras=['fenced-code-blocks'], )
         return article_list
 
     # get_context_data可以额外传一些 *内容* 到 *模板*
