@@ -20,6 +20,8 @@
     <!--link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"-->
 
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/blog.css" %}">
+    <!--link rel="stylesheet" type="text/css" href="{% static "css/screen.css" %}"-->
 
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -37,7 +39,18 @@
 
 <body>
 
-     {% block content %}{% endblock %}
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="{% url 'blog:index' %}">CExchange</a>
+        </nav>
+      </div>
+    </div>
+
+    <container>
+        {% block content %}{% endblock %}
+    </container>
+
 
 </body>
 
