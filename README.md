@@ -1,5 +1,6 @@
 # CExchange
 An experience share and Q&amp;A website for civil engineers.
+本项目目前已经迁移到新的项目gongxinshi，可移步新项目仓库查看。
 
 ### 项目运行方式
 开发环境为 python3.4，推荐使用pyenv + virtualenv搭建虚拟环境使用。
@@ -27,4 +28,4 @@ markdown2
 
 
 # Authors
-Travis
+Xu Chi
